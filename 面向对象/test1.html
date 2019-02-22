@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function fn1(){
+        //     var n = 999
+        //     nAdd = function(){
+        //         n+=1
+        //     }
+        //     function fn2(){
+        //         alert(n)
+        //     }
+        //     return fn2
+        // }
+        // var res = fn1()
+        // res()  //999
+        // nAdd()
+        // res()  //1000
+
+        var name = 'window'
+        var obj = {
+            name: 'my obj',
+            getNameFunc: function(){
+                // var that = this
+                return function(){
+                    return this.name
+                }
+            }
+        }
+        var get = obj.getNameFunc() //function(){return this.name}
+        alert(get())
+    </script>
+</body>
+</html>

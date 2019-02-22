@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button>0</button>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <script>
+        var btn = document.getElementsByTagName('button')
+        // for(var i=0;i<btn.length;i++){
+        //     btn[i].index = i
+        //     // console.log(i)
+        //     btn[i].onclick = function(){
+        //         console.log(this.index)
+        //     }
+        // }
+        // 闭包就是定义在一个函数内部的函数
+        // 闭包可以读取函数内部的变量，并且让这些变量的值始终保存在内存中
+        // 在本质上，闭包就是将函数内部和外部连接在一起的桥梁
+        // for(var i=0;i<btn.length;i++){
+        //     (function(n){  //n是形参
+        //         btn[i].onclick = function(){
+        //             console.log(i+'-'+n)  //i总是=5，n是点击的数
+        //         }
+        //     })(i) //循环中的i,被作为参数传入
+        // }
+        // 内部函数可以调用外部函数传进来的参数，外部函数执行完毕也不会影响到内部函数
+
+
+        // 直接利用return返回值
+        for(var i=0;i<btn.length;i++){
+            btn[i].onclick = (function(i){
+                return function(){
+                    console.log(i)
+                }
+            })(i)  //循环的时候i被驻扎在内部，点击时的是外部函数已经存在内存中的i 
+        }
+    </script>
+</body>
+</html>
